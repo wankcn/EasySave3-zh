@@ -274,3 +274,43 @@ catch(System.Security.SecurityException)
 # Auto Save 自动保存
 
 原文链接：[Auto Save guide](https://docs.moodkie.com/easy-save-3/es3-guides/auto-save-saving-without-code/)
+
+自动保存允许您在GameObject和预制体实例上保存受支持的组件
+
+## 1. 在场景中启用自动保存
+
+-   在 *Window>Easy Save 3>Auto Save* ，然后按启用此场景的自动保存 *Enable Auto Save for this scene*
+
+-   选择要保存在场景中游戏对象上的组件
+-   按下组件旁的齿轮图标，可以选择这个组件需要保存的变量
+
+## 2. 自动保存预制件实例
+
+-   右键点击预制件并且选择*Easy Save 3 > Enable Easy Save for Prefab*，或者可以在Prefab增加ES3 Prefab脚本
+-   在工具栏选择 *Window > Easy Save 3 > Auto Save > Prefabs*
+-   此时可以在Prefabs显示栏下选择需要保存的预制件
+
+## 3. 选择保存和加载数据的时间
+
+在自动保存窗口中可以修改 SaveEvent 和 Load Event 的选项
+
+## 4. 在代码中自动保存
+
+在代码中手动触发时候，建议将 **SaveEvent** 和 **Load Event** 设置为 **None**
+
+```csharp
+// To save
+ES3AutoSaveMgr.Current.Save();
+
+// To load
+ES3AutoSaveMgr.Current.Load();
+```
+
+## 5. 使用代码更改文件名或路径
+
+```csharp
+ES3AutoSaveMgr.Current.settings.path = "MyFile.es3";
+```
+
+
+
